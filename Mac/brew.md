@@ -6,13 +6,3 @@
 
 3. phalcon
    brew install php71-phalcon
-
-   brew install php71-phalcon安装扩展
-
-4. brew install php71-phalcon安装扩展
-
-5. brew install php71-phalcon安装扩展
-
-6. brew install php71-phalcon安装扩展
-
-7. 
