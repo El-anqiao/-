@@ -1,0 +1,32 @@
+CREATE TABLE `product_select_keyword` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '流水号ID',
+  `keyword_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '属性值ID',
+  `parent_sku` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unicode` (`keyword_id`,`parent_sku`) USING BTREE,
+  KEY `sku` (`parent_sku`) USING BTREE,
+  KEY `attribute_value_id` (`keyword_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=17806 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+
+CREATE TABLE `product_keyword` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `words` varchar(500) CHARACTER SET utf8 NOT NULL COMMENT '关键词',
+  `slug` varchar(500) CHARACTER SET utf8 NOT NULL COMMENT '连接地址RewriteTitle',
+  `hash` varchar(50) CHARACTER SET utf8 NOT NULL COMMENT '内容hash(单词转小写)',
+  `icon` varchar(300) CHARACTER SET utf8 DEFAULT NULL COMMENT '原图地址',
+  `description` text CHARACTER SET utf8 COMMENT '描述',
+  `banner_path` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '图片路径',
+  `status` tinyint(1) DEFAULT '1' COMMENT '状态',
+  `position` int(11) DEFAULT '0' COMMENT '权重',
+  `type` varchar(200) CHARACTER SET utf8 NOT NULL DEFAULT 'tag' COMMENT '类型',
+  `language_code` varchar(100) CHARACTER SET utf8 NOT NULL DEFAULT 'english' COMMENT '所属语言code',
+  `subset_tag_ids` varchar(2000) CHARACTER SET utf8 DEFAULT NULL COMMENT '子集tag id',
+  `link` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '连接地址',
+  `created` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '时间',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  PRIMARY KEY (`id`,`hash`),
+  KEY `position` (`position`) USING BTREE,
+  KEY `keyword` (`words`(255)) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=752 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
+
