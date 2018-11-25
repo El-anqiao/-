@@ -6,9 +6,13 @@ docker exec -it hera /bin/bash
 
 docker run --name hera -p 8088:8088 -itv  /Users/anqiao/Documents/CodeStructure:/www  swoft/swoft:latest  /bin/bash
 
-
+ 
 
 /usr/lib/php/extensions/no-debug-non-zts-20160303
+
+
+
+docker run --name honda  -itv  /Users/anqiao/PycharmProjects:/workspace  pytorch/pytorch  /bin/bash
 
 # mysql
 
