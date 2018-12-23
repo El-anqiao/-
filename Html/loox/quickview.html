@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="dns-prefetch" href="//images.loox.io">
+  <link rel="dns-prefetch" href="fonts.googleapis.com">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="p:domain_verify" content="b845be09b5d375ad7db4df2ac2d0e0d8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="YPqqEBNAlUrB__Y9Z6lUWZCANTr5gua_dYF0RACt78A">
+  <link href="/img/favicon_bw.png" rel="icon" type="image/png">
+  <link href="https://loox.io/css/admin/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="https://loox.io/css/admin/font-awesome/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Poppins" media="all" rel="stylesheet">
+  <style>* {
+    font-family: "Poppins", sans-serif;
+  }</style>
+  <style>* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 12px;
+  }
+
+  body {
+    background-color: transparent;
+    padding-bottom: 20px;
+  }
+
+  a, a:visited, a:hover {
+    text-decoration: none;
+    color: #282828;
+  }
+
+  .space-left {
+    margin-left: 7px;
+  }
+
+  #header {
+    border-bottom: solid 1px #DEDEDE;
+    margin: 20px auto 7px;
+    padding: 0 7px 7px;
+    position: relative;
+  }
+
+  #header .dropdown-toggle {
+    display: block;
+    float: right;
+    padding: 8px;
+    border-radius: 2px;
+    margin: 0 0 7px 7px;
+  }
+
+  #header .dropdown-toggle .icon-bar {
+    background-color: #888;
+  }
+
+  #header .dropdown-toggle .icon-bar + .icon-bar {
+    margin-top: 4px;
+  }
+
+  #header .dropdown-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+  }
+
+  #header .star + .star {
+    margin-left: 2px;
+  }
+
+  #header #write {
+    padding: 4px 12px;
+    font-size: 16px;
+    margin: 0;
+    height: 33px;
+  }
+
+  .half {
+    width: 50%;
+    float: left;
+    clear: none;
+  }
+
+  .clearfix:after {
+    content: " ";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+  }
+
+  .metadata {
+    margin-bottom: 5px;
+  }
+
+  .metadata .value {
+    font-size: 110%;
+  }
+
+  .align-right {
+    text-align: right;
+  }
+
+  .pre-wrap {
+    white-space: pre-wrap;
+  }
+
+  .text-large {
+    font-size: 24px;
+    vertical-align: middle;
+  }
+
+  .main-text {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .action {
+    cursor: pointer;
+  }
+
+  .truncate {
+    height: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .summary {
+    color: #282828;
+  }
+
+  .summary-text {
+    padding: 6px 0 0 0;
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: middle;
+  }
+
+  .top-to-bottom {
+    position: relative;
+    overflow: hidden;
+    max-height: 150px;
+    padding-bottom: 10px;
+  }
+
+  .top-to-bottom:after {
+    position: absolute;
+    content: " ";
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 30px 0;
+    background: linear-gradient(to bottom, transparent, #FAFAFA);
+  }
+
+  #grid {
+    margin: 0 auto;
+    padding: 0 0 20px;
+  }
+
+  .lx-btn {
+    border: solid 1px #282828;
+    color: #282828;
+    background: transparent;
+  }
+
+  .lx-primary {
+    border-radius: 2px;
+    transition-property: background, color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+  }
+
+  .lx-btn:focus, .lx-btn:hover {
+    background: #282828;
+    color: #fff;
+    outline: 0;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  @media (min-width: 645px) {
+    .close-btn {
+      top: -15px;
+      right: 25px
+    }
+  }</style>
+  <style>.grid-item .block.time {
+    color: #a3a3a3;
+    font-size: 11px;
+    padding: 5px 10px 0;
+    height: 20px;
+  }
+
+  #grid .grid-item-wrap {
+    width: 100%;
+    float: left;
+  }
+
+  #grid .grid-item .star {
+    font-size: 14px;
+  }
+
+  #grid .grid-item .box {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #grid .grid-item .box.item-img {
+    padding: 0
+  }
+
+  .grid-item {
+    margin: 7px;
+    background-color: #F0F0F0;
+    overflow: hidden;
+  }
+
+  .grid-item .item-img {
+    position: relative;
+  }
+
+  .grid-item .item-img img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .grid-item .star {
+    font-size: 18px;
+  }
+
+  .grid-item .block {
+    padding: 10px 10px 0;
+  }
+
+  .grid-item .block.rating {
+    height: 27px;
+  }
+
+  .grid-item .block.title {
+    padding: 0 10px 0;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .grid-item .owner {
+    margin-top: 4px;
+    font-weight: normal;
+  }
+
+  #grid .item-reply {
+    background-color: rgba(224, 224, 224, 0.7);
+    border-top: solid 1px #c3c3c3;
+  }
+
+  #grid .item-reply .item-reply-title {
+    opacity: 0.7;
+  }
+
+  .cell img {
+    float: left;
+    max-width: 20%;
+    max-height: 100px;
+    margin-right: 5%;
+  }
+
+  .cell .desc {
+    float: left;
+    width: 75%;
+  }
+
+  .price {
+    font-size: 14px;
+    color: #282828;
+  }
+
+  .discount {
+    font-size: 14px;
+    color: #008000;
+    font-weight: bold;
+    margin-left: 7px;
+  }
+
+  .product {
+    min-height: 81px;
+  }
+
+  .product .desc .name {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  @media (max-width: 480px) {
+    #grid.grid-col-1 .grid-item-wrap {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 320px) {
+    #grid .grid-item-wrap {
+      width: 50%;
+    }
+  }
+
+  @media (min-width: 480px) {
+    #grid .grid-item-wrap {
+      width: 33.3333333333333%;
+    }
+  }
+
+  @media (min-width: 920px) {
+    #grid .grid-item-wrap {
+      width: 25%;
+    }
+  }
+  </style>
+  <style>.social {
+    text-align: right;
+    padding: 0;
+    position: absolute;
+    top: 20px;
+    right: 20px
+  }
+
+  .social a {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background: #aaa;
+    padding: 2px;
+    color: #fff;
+    font-size: 18px;
+  }
+
+  .social a + a {
+    margin: 0 0 0 10px;
+  }
+
+  .social a i {
+    color: #fff;
+  }
+
+  .social a:hover, .social a:focus {
+    background: #282828;
+  }</style>
+  <style>#quickview {
+    position: relative;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 900px;
+  }
+
+  #quickview .grid-item-wrap {
+    position: relative;
+  }
+
+  #quickview .block.title {
+    margin-right: 110px
+  }
+
+  #quickview .grid-item-wrap {
+    margin: 0 auto;
+    height: 100%;
+  }
+
+  #quickview .grid-item-wrap.no-img {
+    max-width: 450px;
+  }
+
+  #quickview .box {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 15px 0 #ccc;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  #quickview .grid-item {
+    background: 0;
+    margin: 0;
+    padding: 2% 2% 0 2%;
+    height: 100%;
+  }
+
+  #quickview .grid-item .item-img {
+    padding: 0;
+    border-radius: 7px;
+    margin-bottom: 20px;
+  }
+
+  #quickview .grid-item .item-img img {
+    width: 100%;
+  }
+
+  #quickview .main, #quickview .item-img {
+    margin: 1%;
+  }
+
+  @media (min-width: 620px) {
+    #quickview .has-img .grid-item .item-img {
+      width: 58%;
+      float: left;
+    }
+
+    #quickview .has-img .grid-item .main {
+      width: 38%;
+      float: left;
+    }
+  }
+
+  @media (max-width: 620px) {
+    #quickview .grid-item-wrap {
+      max-width: 400px;
+      padding-top: 40px
+    }
+  }
+  </style>
+  <style>@media (min-width: 620px) {
+    #quickview {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  }</style>
+  <style>@media (min-width: 1150px) {
+    #grid .grid-item-wrap {
+      width: 20%;
+    }
+  }
+
+  @media (min-width: 1380px) {
+    #grid.grid-col-6 .grid-item-wrap {
+      width: 16.6666666666667%;
+    }
+  }</style>
+</head>
+<body>
+<div id="quickview">
+  <div class="grid-item-wrap has-img">
+    <div class="grid-item clearfix">
+      <div class="item-img box"><img src="//images.loox.io/uploads/2016/5/16/NyQX3GzzW_mid.jpg" alt=""
+                                     data-img-ratio='1.61' style="background:rgb(34,24,22);"
+                                     onerror="this.parentElement.removeChild(this)" onload="this.loaded = true;"/></div>
+      <div class="main">
+        <div class="box">
+          <div class="block title">Ray C.</div>
+          <div class="social"><a data-share="twitter"
+                                 href="https://twitter.com/intent/tweet?text=%22It%20is%20light%20and%20looks%20and%20feels%20great!%20Very%20comfortable.%22%20-%20Ray%20C.&amp;url=https%3A%2F%2Floox.io%2Fp%2FV1GeMnMzGW%3Fs%3Dtw&amp;via=looxio"
+                                 onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"
+                                 title="twitter" class="btn btn-twitter btn-social-icon"><i
+            class="fa fa-twitter"></i></a><a data-share="facebook"
+                                             href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Floox.io%2Fp%2FV1GeMnMzGW%3Fs%3Dfb&amp;t=%22It%20is%20light%20and%20looks%20and%20feels%20great!%20Very%20comfortable.%22%20-%20Ray%20C."
+                                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"
+                                             title="facebook" class="btn btn-facebook btn-social-icon"><i
+            class="fa fa-facebook"></i></a><a data-share="pinterest"
+                                              href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Floox.io%2Fp%2FV1GeMnMzGW%3Fs%3Dpin&amp;media=https%3A%2F%2Fimages.loox.io%2Fuploads%2F2016%2F5%2F16%2FNyQX3GzzW.jpg&amp;description=%22It%20is%20light%20and%20looks%20and%20feels%20great!%20Very%20comfortable.%22%20-%20Ray%20C."
+                                              onclick="window.open(this.href, 'pinterest-share', 'width=490,height=530');return false;"
+                                              title="pinterest" class="btn btn-pinterest btn-social-icon"><i
+            class="fa fa-pinterest"></i></a></div>
+          <div class="clearfix"></div>
+          <div data-time='1463364849689' class="block time"></div>
+          <div class="block stars"><i class="fa star fa-star"></i><i class="fa star fa-star"></i><i
+            class="fa star fa-star"></i><i class="fa star fa-star"></i><i class="fa star fa-star"></i></div>
+          <div class="block">
+            <div class="pre-wrap main-text">It is light and looks and feels great! Very comfortable.</div>
+          </div>
+        </div>
+        <div class="box item-reply">
+          <div class="block">
+            <div class="row">
+              <div class="metadata col-xs-6">
+                <div class="small text-muted">Quality</div>
+                <div style="text-overflow: ellipsis;max-width: 100%;overflow: hidden;" class="value">Perfect</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="close-btn" class="close-btn">&#x2a09;</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://loox.io/js/admin/jquery.min.js"></script>
+<script src="https://loox.io/js/admin/bootstrap/bootstrap.min.js"></script>
+<script>(function () {
+  var prettyDates = function () {
+    var elements = document.getElementsByClassName("time");
+    for (var i = 0; i < elements.length; i++) {
+      var e = elements[i];
+
+      var upgraded = e.getAttribute("data-upgraded");
+      if (upgraded) continue;
+      e.setAttribute('data-upgraded', 'true');
+
+      var time = e.getAttribute("data-time");
+      if (!time)
+        continue;
+
+      var text = new Date(Number(time)).toLocaleDateString();
+      if (!text)
+        continue;
+
+      elements[i].innerHTML = text;
+    }
+  };
+  prettyDates();
+  setInterval(prettyDates, 1000);
+})();
+</script>
+<script>(function () {
+  $('#close-btn').click(function () {
+    window.parent.postMessage('{ "type" : "closeModal", "frame" : "quickview" }', "*");
+  });
+  document.addEventListener('keyup', function (e) {
+    if (e.keyCode != 27) return;
+    window.parent.postMessage('{ "type" : "closeModal", "frame" : "quickview" }', "*");
+  });
+  window.focus();
+})();</script>
+<script>(function () {
+  var h = 0;
+  setInterval(function () {
+    var height = document.getElementsByTagName('html')[0].offsetHeight;
+    if (Math.abs(height - h) < 50) return;
+    h = height;
+    window.parent.postMessage('{ "type" : "resize", "height" : ' + h + ', "frame" : "quickview" }', "*");
+  }, 100);
+})();</script>
+</body>
+</html>
